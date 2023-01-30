@@ -7,9 +7,10 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import { createEmotionCache, MantineProvider } from "@mantine/core";
+import {ColorScheme, ColorSchemeProvider, createEmotionCache, MantineProvider} from "@mantine/core";
 import { StylesPlaceholder } from "@mantine/remix";
 import { theme } from "./theme";
+import {useState} from "react";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -20,21 +21,27 @@ export const meta: MetaFunction = () => ({
 createEmotionCache({ key: "mantine" });
 
 export default function App() {
+  const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
+  const toggleColorScheme = (value?: ColorScheme) =>
+      setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
+
   return (
-    <MantineProvider theme={theme} withGlobalStyles withNormalizeCSS>
-      <html lang="en">
-        <head>
-          <StylesPlaceholder />
-          <Meta />
-          <Links />
-        </head>
-        <body>
-          <Outlet />
-          <ScrollRestoration />
-          <Scripts />
-          <LiveReload />
-        </body>
-      </html>
-    </MantineProvider>
+    <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
+      <MantineProvider theme={theme} withGlobalStyles withNormalizeCSS>
+        <html lang="en">
+          <head>
+            <StylesPlaceholder />
+            <Meta />
+            <Links />
+          </head>
+          <body>
+            <Outlet />
+            <ScrollRestoration />
+            <Scripts />
+            <LiveReload />
+          </body>
+        </html>
+      </MantineProvider>
+    </ColorSchemeProvider>
   );
 }
