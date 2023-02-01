@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconGitPullRequest, IconAlertCircle, IconMessages, IconDatabase } from '@tabler/icons-react';
+import { IconBrandReactNative, IconBrandJavascript, IconTrain } from '@tabler/icons-react';
 import { ThemeIcon, UnstyledButton, Group, Text } from '@mantine/core';
 
 interface MainLinkProps {
@@ -35,10 +35,9 @@ function MainLink({ icon, color, label }: MainLinkProps) {
 }
 
 const data = [
-    { icon: <IconGitPullRequest />, color: 'blue', label: 'Pull Requests' },
-    { icon: <IconAlertCircle />, color: 'teal', label: 'Open Issues' },
-    { icon: <IconMessages />, color: 'violet', label: 'Discussions' },
-    { icon: <IconDatabase />, color: 'grape', label: 'Databases' },
+    { icon: <IconBrandReactNative />, color: 'blue', label: 'React' },
+    { icon: <IconBrandJavascript />, color: 'teal', label: 'Javascript' },
+    { icon: <IconTrain />, color: 'violet', label: '旅行✈️' },
 ];
 
 export function MainLinks() {
