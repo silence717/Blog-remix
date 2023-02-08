@@ -1,9 +1,8 @@
-import React from 'react';
-import { IconChevronRight, IconChevronLeft } from '@tabler/icons-react';
-import { UnstyledButton, Group, Avatar, Text, Box, useMantineTheme } from '@mantine/core';
+import React from 'react'
+import { UnstyledButton, Group, Avatar, Text, Box, useMantineTheme } from '@mantine/core'
 
 export function User() {
-    const theme = useMantineTheme();
+    const theme = useMantineTheme()
 
     return (
         <Box
@@ -41,8 +40,6 @@ export function User() {
                             yangfang2028@126.com
                         </Text>
                     </Box>
-
-                    {theme.dir === 'ltr' ? <IconChevronRight size={16} /> : <IconChevronLeft />}
                 </Group>
             </UnstyledButton>
         </Box>
