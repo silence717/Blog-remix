@@ -1,7 +1,6 @@
 import React from 'react'
-import { ColorScheme } from '@mantine/core'
 
-export function Logo({ colorScheme }: { colorScheme: ColorScheme }) {
+export function Logo() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 623 163" width={100}>
       <path

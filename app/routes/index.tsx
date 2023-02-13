@@ -1,5 +1,5 @@
-import Layout from '../../src/component/Layout'
+import Layout from '../../src/container/Layout'
 
-export default function Index() {
+export default function Home() {
   return <Layout />
 }
