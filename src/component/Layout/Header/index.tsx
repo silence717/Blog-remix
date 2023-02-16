@@ -20,7 +20,7 @@ const BlogHeader: FC<Props> = ({ opened, handlers }) => {
       </MediaQuery>
       <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
         <Group px={20} position="apart">
-          <Logo colorScheme={colorScheme} />
+          <Logo />
           <ActionIcon variant="default" onClick={() => toggleColorScheme()} size={30}>
             {colorScheme === 'dark' ? <IconSun /> : <IconMoonStars />}
           </ActionIcon>
