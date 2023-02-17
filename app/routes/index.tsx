@@ -1,4 +1,4 @@
-import Layout from '../../src/container/Layout'
+import Layout from '../container/Layout'
 
 export default function Home() {
   return <Layout />
