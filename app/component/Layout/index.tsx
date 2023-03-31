@@ -4,7 +4,7 @@ import { AppShell, Center, Stack, Text, Title, useMantineColorScheme, useMantine
 import BlogHeader from './Header'
 import BlogFooter from './Footer'
 
-export default function AppShellDemo() {
+export default function Layout() {
   const theme = useMantineTheme()
   const { colorScheme } = useMantineColorScheme()
   const [opened, handlers] = useDisclosure(false)
