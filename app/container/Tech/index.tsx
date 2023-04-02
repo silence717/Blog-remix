@@ -1,22 +1,14 @@
 import React from 'react'
-import { useLoaderData } from '@remix-run/react'
+import type { FC } from 'react'
 import { Card, Grid, Group, Image, Text } from '@mantine/core'
-
-const NOTION_BLOG_ID = process.env.NOTION_BLOG_ID || '24e4127d0f434b81b9a1248ef100848a'
 
 export type Post = { id: string; slug: string; title: string; date: string }
 
-export const getAllPosts = async () => {
-  return await fetch(`https://notion-api.splitbee.io/v1/table/${NOTION_BLOG_ID}`)
+type Props = {
+  posts: Post[]
 }
 
-export const loader = async () => {
-  return getAllPosts()
-}
-
-const Posts = () => {
-  const posts: Post[] = useLoaderData<typeof loader>()
-
+const Posts: FC<Props> = ({ posts }) => {
   return (
     <Grid>
       {posts?.map((post, index) => (
@@ -42,12 +34,4 @@ const Posts = () => {
   )
 }
 
-export async function getStaticProps() {
-  const posts = await getAllPosts()
-  return {
-    props: {
-      posts,
-    },
-  }
-}
 export default Posts

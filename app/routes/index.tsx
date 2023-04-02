@@ -1,5 +1,9 @@
-import Layout from '../container/Layout'
+import { Layout } from '../component'
 
 export default function Home() {
-  return <Layout />
+  return (
+    <Layout>
+      <h1>首页</h1>
+    </Layout>
+  )
 }

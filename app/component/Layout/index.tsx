@@ -1,13 +1,14 @@
-import { useDisclosure } from '@mantine/hooks'
-import { AppShell, Center, Stack, Text, Title, useMantineColorScheme, useMantineTheme } from '@mantine/core'
+import type { FC, PropsWithChildren } from 'react'
+import { AppShell, Center, useMantineColorScheme, useMantineTheme } from '@mantine/core'
 
 import BlogHeader from './Header'
 import BlogFooter from './Footer'
 
-export default function Layout() {
+type Props = PropsWithChildren & {}
+
+const Layout: FC<Props> = ({ children }) => {
   const theme = useMantineTheme()
   const { colorScheme } = useMantineColorScheme()
-  const [opened, handlers] = useDisclosure(false)
 
   return (
     <AppShell
@@ -18,16 +19,11 @@ export default function Layout() {
       }}
       navbarOffsetBreakpoint="sm"
       footer={<BlogFooter />}
-      header={<BlogHeader opened={opened} handlers={handlers} />}
+      header={<BlogHeader />}
     >
-      <Center h="100%">
-        <Stack spacing="sm">
-          <Title order={2}>欢迎来到杨小白的博客😄😄</Title>
-          <Text size="md" color="dimmed" weight={500}>
-            还没有想好要写点什么，暂时放着
-          </Text>
-        </Stack>
-      </Center>
+      <Center h="100%">{children}</Center>
     </AppShell>
   )
 }
+
+export default Layout

@@ -1,31 +1,39 @@
+import React, { useState } from 'react'
 import type { FC } from 'react'
-import React from 'react'
-import { IconMoonStars, IconSun } from '@tabler/icons-react'
-import { ActionIcon, Burger, Group, Header, MediaQuery, useMantineColorScheme, useMantineTheme } from '@mantine/core'
-import { Logo } from '../Logo'
+import { Header, Container, Group, Burger } from '@mantine/core'
+import { useDisclosure } from '@mantine/hooks'
+import useStyles from './style'
+import { Link } from '@remix-run/react'
 
-type Props = {
-  opened: boolean
-  handlers: any
-}
+const links = [
+  { link: '/', label: 'Home' },
+  { link: '/tech', label: 'Tech' },
+  { link: '/me', label: 'Me' },
+]
 
-const BlogHeader: FC<Props> = ({ opened, handlers }) => {
-  const theme = useMantineTheme()
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme()
+type Props = {}
+
+const BlogHeader: FC<Props> = () => {
+  const [opened, { toggle }] = useDisclosure(false)
+  const [active, setActive] = useState(links[0].link)
+  const { classes, cx } = useStyles()
+
+  const items = links.map((link) => (
+    <Link key={link.link} to={link.link}>
+      <a key={link.label} className={cx(classes.link, { [classes.linkActive]: active === link.link })}>
+        {link.label}
+      </a>
+    </Link>
+  ))
 
   return (
-    <Header height={{ base: 50, md: 70 }} p="md">
-      <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
-        <Burger opened={opened} onClick={() => handlers.toggle()} size="sm" color={theme.colors.gray[6]} mr="xl" />
-      </MediaQuery>
-      <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
-        <Group px={20} position="apart">
-          <Logo />
-          <ActionIcon variant="default" onClick={() => toggleColorScheme()} size={30}>
-            {colorScheme === 'dark' ? <IconSun /> : <IconMoonStars />}
-          </ActionIcon>
+    <Header height={60} mb={120}>
+      <Container className={classes.header}>
+        <Group spacing={5} className={classes.links}>
+          {items}
         </Group>
-      </MediaQuery>
+        <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
+      </Container>
     </Header>
   )
 }
