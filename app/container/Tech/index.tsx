@@ -12,7 +12,7 @@ const Posts: FC<Props> = ({ posts }) => {
   return (
     <Grid>
       {posts?.map((post, index) => (
-        <Grid.Col span={2} key={index}>
+        <Grid.Col span={4} key={index}>
           <Card shadow="sm" p="lg" radius="md" withBorder>
             <Card.Section>
               <Image

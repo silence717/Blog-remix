@@ -4,6 +4,7 @@ import { ColorScheme, ColorSchemeProvider, createEmotionCache, MantineProvider }
 import { StylesPlaceholder } from '@mantine/remix'
 import { theme } from './theme'
 import { useState } from 'react'
+import { Layout } from './component'
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
@@ -28,7 +29,9 @@ export default function App() {
             <Links />
           </head>
           <body>
-            <Outlet />
+            <Layout>
+              <Outlet />
+            </Layout>
             <ScrollRestoration />
             <Scripts />
             <LiveReload />

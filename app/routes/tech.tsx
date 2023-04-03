@@ -1,9 +1,8 @@
 import React from 'react'
 import { useLoaderData } from '@remix-run/react'
-import { Layout } from '~/component'
 import Posts from '../container/Tech'
 
-const NOTION_BLOG_ID = process.env.NOTION_BLOG_ID || '24e4127d0f434b81b9a1248ef100848a'
+const NOTION_BLOG_ID = '24e4127d0f434b81b9a1248ef100848a'
 
 export type Post = { id: string; slug: string; title: string; date: string }
 
@@ -18,11 +17,7 @@ export const loader = async () => {
 const Tech = () => {
   const posts: Post[] = useLoaderData<typeof loader>()
 
-  return (
-    <Layout>
-      <Posts posts={posts} />
-    </Layout>
-  )
+  return <Posts posts={posts} />
 }
 
 export async function getStaticProps() {
