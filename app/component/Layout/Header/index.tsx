@@ -1,9 +1,9 @@
-import React from 'react'
 import type { FC } from 'react'
+import React from 'react'
 import { Header, Container, Group, Burger } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
+import { NavLink } from '@remix-run/react'
 import useStyles from './style'
-import { Link } from '@remix-run/react'
 
 const links = [
   { link: '/tech', label: 'Tech' },
@@ -14,12 +14,18 @@ type Props = {}
 
 const BlogHeader: FC<Props> = () => {
   const [opened, { toggle }] = useDisclosure(false)
-  const { classes } = useStyles()
+  const { classes, cx } = useStyles()
 
   const items = links.map((link) => (
-    <Link key={link.link} to={link.link}>
+    <NavLink
+      key={link.link}
+      to={link.link}
+      className={({ isActive }) => {
+        return cx(classes.link, { [classes.linkActive]: isActive })
+      }}
+    >
       {link.label}
-    </Link>
+    </NavLink>
   ))
 
   return (
