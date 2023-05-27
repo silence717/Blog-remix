@@ -23,6 +23,7 @@ specifiers:
   prettier: ^2.7.1
   react: ^18.2.0
   react-dom: ^18.2.0
+  react-use-howxm: ^1.1.1
   typescript: ^4.9.4
   yarn-upgrade-all: ^0.7.2
 
@@ -39,6 +40,7 @@ dependencies:
   '@tabler/icons-react': registry.npmmirror.com/@tabler/icons-react/2.4.0_react@18.2.0
   react: registry.npmmirror.com/react/18.2.0
   react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
+  react-use-howxm: registry.npmmirror.com/react-use-howxm/1.1.1_react@18.2.0
 
 devDependencies:
   '@remix-run/dev': registry.npmmirror.com/@remix-run/dev/1.13.0_@remix-run+serve@1.13.0
@@ -13335,6 +13337,23 @@ packages:
       use-latest: registry.npmmirror.com/use-latest/1.2.1_pmekkgnqduwlme35zpnqhenc34
     transitivePeerDependencies:
       - '@types/react'
+    dev: false
+
+  registry.npmmirror.com/react-use-howxm/1.1.1_react@18.2.0:
+    resolution:
+      {
+        integrity: sha512-npQpNQwnoT9OXd94J1TwiiRMroX/50WZOQB+MUl2pJBPwp/ihOYP252jsWJ7D3TzJj9uJFqHry96jM4mSh8ipQ==,
+        registry: https://registry.npm.taobao.org/,
+        tarball: https://registry.npmmirror.com/react-use-howxm/-/react-use-howxm-1.1.1.tgz,
+      }
+    id: registry.npmmirror.com/react-use-howxm/1.1.1
+    name: react-use-howxm
+    version: 1.1.1
+    engines: { node: '>=8', npm: '>=5' }
+    peerDependencies:
+      react: ^16.9.0
+    dependencies:
+      react: registry.npmmirror.com/react/18.2.0
     dev: false
 
   registry.npmmirror.com/react/18.2.0:

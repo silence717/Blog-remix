@@ -1,5 +1,5 @@
 import type { FC, PropsWithChildren } from 'react'
-import { AppShell, Center, useMantineColorScheme, useMantineTheme } from '@mantine/core'
+import { AppShell, Center, Container, useMantineColorScheme, useMantineTheme } from '@mantine/core'
 
 import BlogHeader from './Header'
 import BlogFooter from './Footer'
@@ -21,7 +21,9 @@ const Layout: FC<Props> = ({ children }) => {
       footer={<BlogFooter />}
       header={<BlogHeader />}
     >
-      <Center h="100%">{children}</Center>
+      <Container size={1600}>
+        <Center h="100%">{children}</Center>
+      </Container>
     </AppShell>
   )
 }
